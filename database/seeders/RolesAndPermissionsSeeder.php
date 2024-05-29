@@ -66,7 +66,7 @@ class RolesAndPermissionsSeeder extends Seeder
         // Theme permissions
         $permissions[] = Permission::create(['name' => 'page_Themes']);
 
-        $userRole = Role::create(['name' => 'user'])
+        $userRole = Role::create(['name' => 'cashier'])
             ->syncPermissions($permissions);
 
         $permissions[] = Permission::create(['name' => 'view_all_customer']);
