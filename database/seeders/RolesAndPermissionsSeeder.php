@@ -51,26 +51,23 @@ class RolesAndPermissionsSeeder extends Seeder
         $permissions[] = Permission::create(['name' => 'force_delete_customer']);
         $permissions[] = Permission::create(['name' => 'force_delete_any_customer']);
 
-        // transportation
-        $permissions[] = Permission::create(['name' => 'view_transportation']);
-        $permissions[] = Permission::create(['name' => 'view_any_transportation']);
-        $permissions[] = Permission::create(['name' => 'create_transportation']);
-        $permissions[] = Permission::create(['name' => 'update_transportation']);
-        $permissions[] = Permission::create(['name' => 'restore_transportation']);
-        $permissions[] = Permission::create(['name' => 'restore_any_transportation']);
-        $permissions[] = Permission::create(['name' => 'delete_transportation']);
-        $permissions[] = Permission::create(['name' => 'delete_any_transportation']);
-        $permissions[] = Permission::create(['name' => 'force_delete_transportation']);
-        $permissions[] = Permission::create(['name' => 'force_delete_any_transportation']);
+        // trip
+        $permissions[] = Permission::create(['name' => 'view_trip']);
+        $permissions[] = Permission::create(['name' => 'view_any_trip']);
+        $permissions[] = Permission::create(['name' => 'create_trip']);
+        $permissions[] = Permission::create(['name' => 'update_trip']);
+        $permissions[] = Permission::create(['name' => 'restore_trip']);
+        $permissions[] = Permission::create(['name' => 'restore_any_trip']);
+        $permissions[] = Permission::create(['name' => 'delete_trip']);
+        $permissions[] = Permission::create(['name' => 'delete_any_trip']);
+        $permissions[] = Permission::create(['name' => 'force_delete_trip']);
+        $permissions[] = Permission::create(['name' => 'force_delete_any_trip']);
 
         // Theme permissions
         $permissions[] = Permission::create(['name' => 'page_Themes']);
 
         $userRole = Role::create(['name' => 'cashier'])
             ->syncPermissions($permissions);
-
-        $permissions[] = Permission::create(['name' => 'view_all_customer']);
-        $permissions[] = Permission::create(['name' => 'view_all_transportation']);
 
         // Role
         $permissions[] = Permission::create(['name' => 'view_shield::role']);
