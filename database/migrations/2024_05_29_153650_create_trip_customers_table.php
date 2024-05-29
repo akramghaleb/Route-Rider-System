@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transportations', function (Blueprint $table) {
+        Schema::create('trip_customers', function (Blueprint $table) {
             $table->id();
             $table->integer('customer_id')->unsigned();
             $table->foreign('customer_id')->references('id')->on('customers');
 
-            $table->integer('bus_id')->unsigned();
-            $table->foreign('bus_id')->references('id')->on('buses');
+            $table->integer('trip_id')->unsigned();
+            $table->foreign('trip_id')->references('id')->on('trips');
 
-            $table->datetime('date_of_transportation');
             $table->integer('number_of_seats')->default(1);
+
             $table->longText('notes')->nullable();
             $table->string('file')->nullable();
 
@@ -28,7 +28,6 @@ return new class extends Migration
             $table->integer('updated_by')->nullable();
 
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -37,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transportations');
+        Schema::dropIfExists('trip_customers');
     }
 };

@@ -111,7 +111,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
         User::create([
             'name' => 'user',
-            'email' => 'user@admin.com',
+            'email' => 'user@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'remember_token' => Str::random(10),

@@ -11,22 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('bus_services', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->nullable();
-            $table->string('phone_no')->nullable();
-            $table->string('address')->nullable();
+            $table->integer('bus_id')->unsigned();
+            $table->foreign('bus_id')->references('id')->on('buses');
 
-            $table->integer('id_card_no')->nullable();
-            $table->string('file')->nullable();
-            $table->longText('notes')->nullable();
+            $table->string('type');
+            $table->string('name');
+            $table->longText('description')->nullable();
 
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
 
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -35,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('bus_services');
     }
 };

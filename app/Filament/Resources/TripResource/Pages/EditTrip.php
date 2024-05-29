@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\TransportationResource\Pages;
+namespace App\Filament\Resources\TripResource\Pages;
 
-use App\Filament\Resources\TransportationResource;
+use App\Filament\Resources\TripResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditTransportation extends EditRecord
+class EditTrip extends EditRecord
 {
-    protected static string $resource = TransportationResource::class;
+    protected static string $resource = TripResource::class;
 
     protected function getHeaderActions(): array
     {

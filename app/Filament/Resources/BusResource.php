@@ -25,16 +25,19 @@ class BusResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required(),
+                Forms\Components\TextInput::make('email')
+                    ->email(),
                 Forms\Components\TextInput::make('phone_no')
                     ->tel(),
                 Forms\Components\TextInput::make('address'),
-                Forms\Components\TextInput::make('number_of_customers')
-                    ->required()
-                    ->numeric()
-                    ->default(1),
-                Forms\Components\TextInput::make('available_days'),
+                Forms\Components\TextInput::make('id_card_no')
+                    ->numeric(),
+                Forms\Components\TextInput::make('file'),
+                Forms\Components\Textarea::make('notes')
+                    ->columnSpanFull(),
                 Forms\Components\Toggle::make('is_available')
                     ->required(),
+                Forms\Components\TextInput::make('available_days'),
                 Forms\Components\TextInput::make('created_by')
                     ->numeric(),
                 Forms\Components\TextInput::make('updated_by')
@@ -48,17 +51,21 @@ class BusResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('email')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('phone_no')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('address')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('number_of_customers')
+                Tables\Columns\TextColumn::make('id_card_no')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('available_days')
+                Tables\Columns\TextColumn::make('file')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_available')
                     ->boolean(),
+                Tables\Columns\TextColumn::make('available_days')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_by')
                     ->numeric()
                     ->sortable(),

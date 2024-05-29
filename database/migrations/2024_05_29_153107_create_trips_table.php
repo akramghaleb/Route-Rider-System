@@ -11,19 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('buses', function (Blueprint $table) {
+        Schema::create('trips', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->nullable();
-            $table->string('phone_no')->nullable();
-            $table->string('address')->nullable();
+            $table->integer('bus_id')->unsigned();
+            $table->foreign('bus_id')->references('id')->on('buses');
 
-            $table->integer('id_card_no')->nullable();
-            $table->string('file')->nullable();
+            $table->string('from');
+            $table->string('to');
+
+            $table->datetime('date_of_trip');
+            $table->integer('vip_chairs')->default(1);
+            $table->integer('customer_chairs')->default(1);
+
             $table->longText('notes')->nullable();
-
-            $table->boolean('is_available')->default(true);
-            $table->string('available_days')->nullable();
+            $table->string('file')->nullable();
 
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
@@ -38,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('buses');
+        Schema::dropIfExists('trips');
     }
 };

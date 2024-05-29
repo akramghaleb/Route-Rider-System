@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TransportationResource\Pages;
-use App\Filament\Resources\TransportationResource\RelationManagers;
-use App\Models\Transportation;
+use App\Filament\Resources\TripResource\Pages;
+use App\Filament\Resources\TripResource\RelationManagers;
+use App\Models\Trip;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class TransportationResource extends Resource
+class TripResource extends Resource
 {
-    protected static ?string $model = Transportation::class;
+    protected static ?string $model = Trip::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -23,22 +23,26 @@ class TransportationResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('customer_id')
-                    ->required()
-                    ->numeric(),
                 Forms\Components\TextInput::make('bus_id')
                     ->required()
                     ->numeric(),
-                Forms\Components\DateTimePicker::make('date_of_transportation')
+                Forms\Components\TextInput::make('from')
                     ->required(),
-                Forms\Components\TextInput::make('number_of_seats')
+                Forms\Components\TextInput::make('to')
+                    ->required(),
+                Forms\Components\DateTimePicker::make('date_of_trip')
+                    ->required(),
+                Forms\Components\TextInput::make('vip_chairs')
+                    ->required()
+                    ->numeric()
+                    ->default(1),
+                Forms\Components\TextInput::make('customer_chairs')
                     ->required()
                     ->numeric()
                     ->default(1),
                 Forms\Components\Textarea::make('notes')
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('file')
-                    ->columnSpanFull(),
+                Forms\Components\TextInput::make('file'),
                 Forms\Components\TextInput::make('created_by')
                     ->numeric(),
                 Forms\Components\TextInput::make('updated_by')
@@ -50,18 +54,24 @@ class TransportationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('customer_id')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('bus_id')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('date_of_transportation')
+                Tables\Columns\TextColumn::make('from')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('to')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('date_of_trip')
                     ->dateTime()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('number_of_seats')
+                Tables\Columns\TextColumn::make('vip_chairs')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('customer_chairs')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('file')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_by')
                     ->numeric()
                     ->sortable(),
@@ -106,9 +116,9 @@ class TransportationResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTransportations::route('/'),
-            'create' => Pages\CreateTransportation::route('/create'),
-            'edit' => Pages\EditTransportation::route('/{record}/edit'),
+            'index' => Pages\ListTrips::route('/'),
+            'create' => Pages\CreateTrip::route('/create'),
+            'edit' => Pages\EditTrip::route('/{record}/edit'),
         ];
     }
 
