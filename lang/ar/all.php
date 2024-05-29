@@ -37,6 +37,10 @@ return [
     'from' => 'من',
     'date_of_trip' => 'تاريخ الرحلة',
 
+    'number_of_seats' => 'عدد المقاعد',
+    'type' => 'النوع',
+    'description' => 'الوصف',
+
     "Sunday" => "الاحد",
     "Monday" => "الاثنين",
     "Tuesday" => "الثلاثاء",

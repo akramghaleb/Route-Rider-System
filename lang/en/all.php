@@ -37,6 +37,10 @@ return [
     'from' => 'From',
     'date_of_trip' => 'Date of trip',
 
+    'number_of_seats' => 'Number of Seats',
+    'type' => 'Type',
+    'description' => 'Description',
+
     "Sunday" => "Sunday",
     "Monday" => "Monday",
     "Tuesday" => "Tuesday",

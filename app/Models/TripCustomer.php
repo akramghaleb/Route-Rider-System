@@ -12,4 +12,14 @@ class TripCustomer extends Model
     use CreatedUpdatedBy;
 
     protected $guarded=[];
+
+    public function trip()
+    {
+        return $this->belongsTo(Trip::class);
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }

@@ -21,6 +21,7 @@ return new class extends Migration
 
             $table->integer('number_of_seats')->default(1);
 
+            $table->string('type')->nullable();
             $table->longText('notes')->nullable();
             $table->string('file')->nullable();
 

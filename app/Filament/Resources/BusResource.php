@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Route;
 
 class BusResource extends Resource
 {
@@ -53,6 +54,7 @@ class BusResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $is_update = Route::currentRouteName() !== Pages\CreateBus::getRouteName();
         return $form
             ->schema([
                 Forms\Components\Card::make()
@@ -99,6 +101,31 @@ class BusResource extends Resource
                         ->columnSpanFull()
                         ->label(__('all.available_days')),
                     ]),
+                    Forms\Components\Card::make()
+                    ->columns(1)
+                    ->schema([
+                        Forms\Components\Repeater::make('bus_services')
+                        ->relationship()
+                        ->when($is_update)
+                        ->schema([
+                            Forms\Components\Select::make('type')
+                                ->options([
+                                    'vip'=>'VIP',
+                                    'normal'=>'Normal',
+                                ])
+                                ->required()
+                                ->label(__('all.type')),
+                            Forms\Components\TextInput::make('name')
+                                ->required()
+                                ->label(__('all.name')),
+                            Forms\Components\Textarea::make('description')
+                                ->columnSpanFull()
+                                ->label(__('all.description')),
+                        ])
+                        ->columns(2)
+                        ->label(__('all.services')),
+                    ])
+                    ->visible($is_update),
             ]);
     }
 

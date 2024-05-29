@@ -18,4 +18,9 @@ class Bus extends Model
     protected $casts = [
         'available_days' => 'array',
     ];
+
+    public function bus_services()
+    {
+        return $this->hasMany(BusService::class);
+    }
 }

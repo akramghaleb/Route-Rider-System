@@ -19,4 +19,9 @@ class Trip extends Model
     {
         return $this->belongsTo(Bus::class);
     }
+
+    public function trip_customers()
+    {
+        return $this->hasMany(TripCustomer::class);
+    }
 }
