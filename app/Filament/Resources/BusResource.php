@@ -19,29 +19,65 @@ class BusResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    // Main Title
+    public static function getPluralModelLabel(): string
+    {
+        return __('all.bus-labels');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('all.bus-label');
+    }
+
+
+    // Group Name
+    public static function getNavigationGroup(): string
+    {
+        return __('all.group-1');
+    }
+
+    protected static bool $shouldRegisterNavigation = true;
+
+    protected static ?int $navigationSort = 11;
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['email','name','phone_no'];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required(),
-                Forms\Components\TextInput::make('email')
-                    ->email(),
-                Forms\Components\TextInput::make('phone_no')
-                    ->tel(),
-                Forms\Components\TextInput::make('address'),
-                Forms\Components\TextInput::make('id_card_no')
-                    ->numeric(),
-                Forms\Components\TextInput::make('file'),
-                Forms\Components\Textarea::make('notes')
-                    ->columnSpanFull(),
-                Forms\Components\Toggle::make('is_available')
-                    ->required(),
-                Forms\Components\TextInput::make('available_days'),
-                Forms\Components\TextInput::make('created_by')
-                    ->numeric(),
-                Forms\Components\TextInput::make('updated_by')
-                    ->numeric(),
+                Forms\Components\Card::make()
+                    ->columns(2)
+                    ->schema([
+                        Forms\Components\TextInput::make('name')
+                            ->required()
+                            ->label(__('all.name')),
+                        Forms\Components\TextInput::make('email')
+                            ->email()
+                            ->label(__('all.email')),
+                        Forms\Components\TextInput::make('phone_no')
+                            ->tel()
+                            ->label(__('all.phone_no')),
+                        Forms\Components\TextInput::make('address')
+                        ->label(__('all.address')),
+                        Forms\Components\TextInput::make('id_card_no')
+                            ->numeric(),
+                        Forms\Components\TextInput::make('file'),
+                        Forms\Components\Textarea::make('notes')
+                            ->columnSpanFull(),
+                        Forms\Components\Toggle::make('is_available')
+                            ->required(),
+                        Forms\Components\TextInput::make('available_days'),
+                    ]),
             ]);
     }
 

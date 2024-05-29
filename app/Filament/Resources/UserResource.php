@@ -23,6 +23,8 @@ class UserResource extends Resource implements HasShieldPermissions
 {
     protected static ?string $model = User::class;
 
+    protected static ?string $navigationIcon = 'heroicon-o-users';
+
     // Main Title
     public static function getPluralModelLabel(): string
     {
