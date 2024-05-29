@@ -6,6 +6,7 @@ use App\Filament\Resources\TripResource\Pages;
 use App\Filament\Resources\TripResource\RelationManagers;
 use App\Filament\Resources\TripResource\RelationManagers\TripCustomersRelationManager;
 use App\Models\Trip;
+use DateTime;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -67,6 +68,7 @@ class TripResource extends Resource
 
                         Forms\Components\DateTimePicker::make('date_of_trip')
                             ->required()
+                            ->minDate(now())
                             ->label(__('all.date_of_trip')),
                         Forms\Components\Grid::make(2)->schema([
                             Forms\Components\TextInput::make('vip_chairs')

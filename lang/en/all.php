@@ -49,6 +49,10 @@ return [
     "Friday" => "Friday",
     "Saturday" => "Saturday",
 
+    "ActiveTrip" => "Active Trip",
+    "TotalChairs" => "Total Chairs",
+    "RemainingChairs" => "Remaining Chairs",
+
     /*
     |--------------------------------------------------------------------------
     | Table Columns

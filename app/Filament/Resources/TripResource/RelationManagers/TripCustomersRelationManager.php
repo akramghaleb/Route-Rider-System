@@ -2,14 +2,20 @@
 
 namespace App\Filament\Resources\TripResource\RelationManagers;
 
+use App\Models\Trip;
+use App\Models\TripCustomer;
+use DateTime;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Columns\Summarizers\Sum;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Route;
 
 class TripCustomersRelationManager extends RelationManager
 {
@@ -25,7 +31,19 @@ class TripCustomersRelationManager extends RelationManager
         return __('all.customer-label');
     }
 
-    public function form(Form $form): Form
+    public function isReadOnly(): bool
+    {
+        // dd(Trip::find($this->getOwnerRecord()->getKey())->date_of_trip);
+        if(new DateTime() > new DateTime(Trip::find($this->getOwnerRecord()->getKey())->date_of_trip)){
+            return true;
+        }
+        if(((Trip::find($this->getOwnerRecord()->getKey())->vip_chairs ?? 0)+(Trip::find($this->getOwnerRecord()->getKey())->customer_chairs ?? 0)-TripCustomer::where('trip_id' , $this->getOwnerRecord()->getKey())->sum('number_of_seats')) <=0 ){
+            return true;
+        }
+        return false;
+    }
+
+    public function form(Form $form ): Form
     {
         return $form
             ->schema([
@@ -56,13 +74,26 @@ class TripCustomersRelationManager extends RelationManager
                                     'vip'=>'VIP',
                                     'normal'=>'Normal',
                                 ])
+                                ->live()
+                                ->afterStateUpdated(function (Set $set) {
+                                    $set('number_of_seats', 0);
+                                })
                                 ->required()
                                 ->label(__('all.type')),
                             Forms\Components\TextInput::make('number_of_seats')
                                 ->numeric()
                                 ->required()
-                                ->default(1)
-                                ->minValue(1)
+                                ->default(0)
+                                ->minValue(0)
+                                ->maxValue(function (RelationManager $livewire , Get $get , $record): int {
+                                    $value = 0;
+                                    if($get('type') == 'vip'){
+                                        $value = (Trip::find($livewire->ownerRecord->id)->vip_chairs ?? 0) ;
+                                    }else if($get('type') == 'normal'){
+                                        $value = Trip::find($livewire->ownerRecord->id)->customer_chairs ?? 0;
+                                    }
+                                    return  $value;
+                                })
                                 ->label(__('all.number_of_seats')),
                             Forms\Components\Textarea::make('notes')
                                 ->columnSpanFull()
@@ -78,6 +109,7 @@ class TripCustomersRelationManager extends RelationManager
             ->recordTitleAttribute('name')
             ->columns([
                 Tables\Columns\TextColumn::make('customer.name')->label(__('all.customer-label')),
+                Tables\Columns\TextColumn::make('type')->label(__('all.type')),
                 Tables\Columns\TextColumn::make('number_of_seats')
                 ->summarize(Sum::make())
                 ->label(__('all.number_of_seats')),
@@ -98,4 +130,5 @@ class TripCustomersRelationManager extends RelationManager
                 ]),
             ]);
     }
+
 }
