@@ -10,6 +10,12 @@ return [
     'bus-labels' => 'Buses',
     'bus-label' => 'Bus',
 
+    'customer-labels' => 'Customers',
+    'customer-label' => 'Customer',
+
+    'trip-labels' => 'Trips',
+    'trip-label' => 'Trip',
+
     /*
     |--------------------------------------------------------------------------
     | Form Fields
@@ -24,6 +30,20 @@ return [
     'notes' => 'Notes',
     'is_available' => 'Available?',
     'available_days' => 'Available Days',
+
+    'customer_chairs' => 'Customer Chairs',
+    'vip_chairs' => 'VIP Chairs',
+    'to' => 'To',
+    'from' => 'From',
+    'date_of_trip' => 'Date of trip',
+
+    "Sunday" => "Sunday",
+    "Monday" => "Monday",
+    "Tuesday" => "Tuesday",
+    "Wednesday" => "Wednesday",
+    "Thursday" => "Thursday",
+    "Friday" => "Friday",
+    "Saturday" => "Saturday",
 
     /*
     |--------------------------------------------------------------------------

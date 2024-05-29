@@ -17,7 +17,7 @@ class BusResource extends Resource
 {
     protected static ?string $model = Bus::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    // protected static ?string $navigationIcon = 'heroicon-o-table-cells';
 
     // Main Title
     public static function getPluralModelLabel(): string
@@ -39,7 +39,7 @@ class BusResource extends Resource
 
     protected static bool $shouldRegisterNavigation = true;
 
-    protected static ?int $navigationSort = 11;
+    protected static ?int $navigationSort = 1;
 
     public static function getGloballySearchableAttributes(): array
     {
@@ -68,15 +68,36 @@ class BusResource extends Resource
                             ->tel()
                             ->label(__('all.phone_no')),
                         Forms\Components\TextInput::make('address')
-                        ->label(__('all.address')),
+                            ->label(__('all.address')),
                         Forms\Components\TextInput::make('id_card_no')
-                            ->numeric(),
-                        Forms\Components\TextInput::make('file'),
+                            ->numeric()
+                            ->label(__('all.id_card_no')),
+                        Forms\Components\FileUpload::make('file')
+                            ->downloadable()
+                            ->directory('Buses')
+                            ->label(__('all.file')),
                         Forms\Components\Textarea::make('notes')
-                            ->columnSpanFull(),
+                            ->columnSpanFull()
+                            ->label(__('all.notes')),
+
                         Forms\Components\Toggle::make('is_available')
-                            ->required(),
-                        Forms\Components\TextInput::make('available_days'),
+                            ->required()
+                            ->label(__('all.is_available')),
+                        Forms\Components\Select::make('available_days')
+                        ->multiple()
+                        ->options(
+                            [
+                                1 => __('all.Sunday'),
+                                2 => __('all.Monday'),
+                                3 => __('all.Tuesday'),
+                                4 => __('all.Wednesday'),
+                                5 => __('all.Thursday'),
+                                6 => __('all.Friday'),
+                                7 => __('all.Saturday'),
+                            ]
+                        )
+                        ->columnSpanFull()
+                        ->label(__('all.available_days')),
                     ]),
             ]);
     }
@@ -86,40 +107,38 @@ class BusResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable()
+                    ->label(__('all.name')),
                 Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable()
+                    ->label(__('all.email')),
                 Tables\Columns\TextColumn::make('phone_no')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('address')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('id_card_no')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('file')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable()
+                    ->label(__('all.phone_no')),
                 Tables\Columns\IconColumn::make('is_available')
-                    ->boolean(),
-                Tables\Columns\TextColumn::make('available_days')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_by')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('updated_by')
-                    ->numeric()
-                    ->sortable(),
+                    ->boolean()
+                    ->label(__('all.is_available')),
+                Tables\Columns\TextColumn::make('address')
+                    ->searchable()
+                    ->label(__('all.address')),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
+                    ->since()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label(__('all.created_at')),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->since()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label(__('all.updated_at')),
                 Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime()
+                    ->since()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label(__('all.deleted_at')),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

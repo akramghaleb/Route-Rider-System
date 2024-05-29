@@ -23,7 +23,7 @@ return new class extends Migration
             $table->longText('notes')->nullable();
 
             $table->boolean('is_available')->default(true);
-            $table->string('available_days')->nullable();
+            $table->json('available_days')->nullable();
 
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();

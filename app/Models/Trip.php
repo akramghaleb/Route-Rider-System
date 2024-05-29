@@ -14,4 +14,9 @@ class Trip extends Model
     use CreatedUpdatedBy;
 
     protected $guarded=[];
+
+    public function bus()
+    {
+        return $this->belongsTo(Bus::class);
+    }
 }

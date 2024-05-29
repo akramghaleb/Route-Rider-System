@@ -14,4 +14,8 @@ class Bus extends Model
     use CreatedUpdatedBy;
 
     protected $guarded=[];
+
+    protected $casts = [
+        'available_days' => 'array',
+    ];
 }
