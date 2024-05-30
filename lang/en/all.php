@@ -52,6 +52,7 @@ return [
     "ActiveTrip" => "Active Trip",
     "TotalChairs" => "Total Chairs",
     "RemainingChairs" => "Remaining Chairs",
+    "Services" => "Services",
 
     /*
     |--------------------------------------------------------------------------

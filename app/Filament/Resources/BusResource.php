@@ -123,7 +123,7 @@ class BusResource extends Resource
                                 ->label(__('all.description')),
                         ])
                         ->columns(2)
-                        ->label(__('all.services')),
+                        ->label(__('all.Services')),
                     ])
                     ->visible($is_update),
             ]);
