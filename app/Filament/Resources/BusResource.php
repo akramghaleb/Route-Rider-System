@@ -18,7 +18,7 @@ class BusResource extends Resource
 {
     protected static ?string $model = Bus::class;
 
-    // protected static ?string $navigationIcon = 'heroicon-o-table-cells';
+    protected static ?string $navigationIcon = 'fas-bus';
 
     // Main Title
     public static function getPluralModelLabel(): string

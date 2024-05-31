@@ -11,7 +11,8 @@
         "filament/filament": "^3.2",
         "hasnayeen/themes": "^3.0",
         "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "owenvoke/blade-fontawesome": "^2.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

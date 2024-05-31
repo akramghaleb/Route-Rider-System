@@ -4,11 +4,13 @@ namespace App\Filament\Widgets;
 
 use App\Models\Trip;
 use App\Models\TripCustomer;
+use BezhanSalleh\FilamentShield\Traits\HasWidgetShield;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class StatsOverview extends BaseWidget
 {
+    use HasWidgetShield;
     protected function getStats(): array
     {
         $activeTrips = Trip::whereDate('date_of_trip' ,'>', \Carbon\Carbon::today())->count();

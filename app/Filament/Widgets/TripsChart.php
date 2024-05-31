@@ -5,11 +5,13 @@ namespace App\Filament\Widgets;
 use App\Models\Contact;
 use App\Models\Trip;
 use App\Models\User;
+use BezhanSalleh\FilamentShield\Traits\HasWidgetShield;
 use Carbon\Carbon;
 use Filament\Widgets\BarChartWidget;
 
 class TripsChart extends BarChartWidget
 {
+    use HasWidgetShield;
     //protected static ?string $heading = 'Contacts';
     public function getHeading(): string
     {
@@ -30,7 +32,7 @@ class TripsChart extends BarChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => __('widgets.Contact_messages'),
+                    'label' => $this->getHeading(),
                     'data' => $quantities,
                     'backgroundColor' => [
                         'rgba(255,99,132,0.8)',

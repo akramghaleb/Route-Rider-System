@@ -2,30 +2,29 @@
 
 namespace App\Filament\Widgets;
 
-use App\Models\Contact;
-use App\Models\User;
+use App\Models\Bus;
 use BezhanSalleh\FilamentShield\Traits\HasWidgetShield;
 use Carbon\Carbon;
 use Filament\Widgets\BarChartWidget;
 
-class UsersChart extends BarChartWidget
+class BusesChart extends BarChartWidget
 {
     use HasWidgetShield;
     //protected static ?string $heading = 'Contacts';
     public function getHeading(): string
     {
-        return __('user.labels');
+        return __('all.bus-labels');
     }
 
-    protected static ?int $sort = 2;
+    protected static ?int $sort = 1;
 
     protected function getData(): array
     {
-        $users = User::select('created_at')->get()->groupby(function ($users){
-           return  Carbon::parse($users->created_at)->format('F');
+        $data = Bus::select('created_at')->get()->groupby(function ($data){
+           return  Carbon::parse($data->created_at)->format('F');
         });
         $quantities = [];
-        foreach ($users as $user=>$value){
+        foreach ($data as $key=>$value){
             array_push($quantities , $value->count());
         }
         return [
@@ -54,7 +53,7 @@ class UsersChart extends BarChartWidget
                     'borderWidth' => 1
                 ],
             ],
-            'labels' => $users->keys(),
+            'labels' => $data->keys(),
         ];
     }
 }
