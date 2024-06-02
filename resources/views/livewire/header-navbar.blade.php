@@ -5,7 +5,7 @@
             <div class="pl-4 flex items-center">
                 <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
                     href="{{ route('/') }}" id="brandname">
-                    Route Rider
+                    {{ __('site.title') }}
                 </a>
             </div>
             <div class="block lg:hidden pr-4">
@@ -19,25 +19,29 @@
             </div>
             <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
                 id="nav-content">
+                @if(auth()->user() == null )
                 <ul class="list-reset lg:flex justify-end flex-1 items-center">
                     <li class="mr-3">
-
+                        <a href="{{ $locale== 'en' ? 'locale/ar' : 'locale/en' }}" class="toggleColour inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/admin">{{ __('site.lang') == 'ar' ? 'English' : 'عربي' }}</a>
                     </li>
                 </ul>
-                @if(auth()->user() == null )
+
                 <a href="/admin" id="navAction"
                     class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                    Login
+                    {{ __('site.Login') }}
                 </a>
                 <div class="pl-2"></div>
                 <a href="/admin/register" id="navAction"
                     class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                    Register
+                    {{ __('site.Register') }}
                 </a>
                 @else
                 <ul class="lg:flex justify-end flex-1 items-center" >
                     <li class="mr-3">
-                        <a class="toggleColour inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/admin">Welcome {{ auth()->user()->name }}</a>
+                        <a href="{{ $locale== 'en' ? 'locale/ar' : 'locale/en' }}" class="toggleColour inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/admin">{{ __('site.lang') == 'ar' ? 'English' : 'عربي' }}</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="toggleColour inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/admin">{{ __('site.Welcome') }} {{ auth()->user()->name }}</a>
                     </li>
                 </ul>
                 <div id="navAction"></div>

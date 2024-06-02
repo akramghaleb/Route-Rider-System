@@ -3,7 +3,7 @@
     <section class="bg-white border-b py-8">
         <div class="container max-w-5xl mx-auto m-8">
             <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-                About us
+                {{ __('site.About us') }}
             </h1>
             <div class="w-full mb-4">
                 <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
@@ -11,19 +11,11 @@
             <div class="flex flex-wrap">
                 <div class="w-5/6 sm:w-1/2 p-6">
                     <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                        Welcome to Route Rider!
+                        {{ __('site.About-title1') }}
                     </h3>
                     <p class="text-gray-600 mb-8">
-                        At Route Rider, we believe that every journey should be an adventure. Our mission is to provide
-                        you with the best tools and resources to navigate your travels with ease and confidence. Whether
-                        you're a daily commuter, an avid cyclist, or an explorer at heart, our platform is designed to
-                        help you find the most efficient, scenic, and enjoyable routes.
+                        {{ __('site.About-desc1') }}
                         <br />
-                        <br />
-
-                        Images from:
-
-                        <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
                     </p>
                 </div>
                 <div class="w-full sm:w-1/2 p-6">
@@ -277,18 +269,11 @@
                 <div class="w-full sm:w-1/2 p-6 mt-6">
                     <div class="align-middle">
                         <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                            Discover Route Rider
+                            {{ __('site.About-title2') }}
                         </h3>
                         <p class="text-gray-600 mb-8">
-                            Route Rider was born out of a simple idea: to make travel planning effortless and enjoyable.
-                            We understand that every trip is unique, and our goal is to help you find the perfect route
-                            for your needs. From urban commutes to scenic countryside rides, Route Rider is your trusted
-                            partner in planning and navigating your journeys.
+                            {{ __('site.About-desc2') }}
                             <br />
-                            <br />
-                            Images from:
-
-                            <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
                         </p>
                     </div>
                 </div>

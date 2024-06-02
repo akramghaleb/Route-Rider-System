@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ __('site.lang') }}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>
-        Route Rider
+        {{ __('site.title') }}
     </title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -15,10 +15,14 @@
       .gradient {
         background: linear-gradient(90deg, #266e8f 0%, #3396d5 100%);
       }
+      img {
+        -webkit-transform: scaleX(-1);
+        transform: scaleX({{ __('site.lang') == 'ar' ? -1 :1  }});
+        }
     </style>
     @vite('resources/css/app.css')
   </head>
-  <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+  <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;"  dir="{{ __('site.dir') }}">
 
     @livewire('header-navbar')
 
