@@ -17,8 +17,33 @@
 Clone the repository
 
 ```
-git clone https://github.com/akramghaleb/laravel-nuxt-template.git
+git clone https://github.com/akramghaleb/Route-Rider-System.git
 ```
+
+Install all the dependencies using composer
+
+```
+composer install
+```
+
+Copy the example env file and make the required configuration changes in the .env file
+
+```
+cp .env.example .env
+```
+
+Generate a new application key
+
+```
+php artisan key:generate
+```
+
+Run the database migrations (**Set the database connection in .env before migrating**)
+
+```
+php artisan migrate --seed
+```
+
 
 Make sure to install the dependencies:
 ```bash
@@ -49,30 +74,6 @@ yarn build
 
 # bun
 bun run build
-```
-
-Install all the dependencies using composer
-
-```
-composer install
-```
-
-Copy the example env file and make the required configuration changes in the .env file
-
-```
-cp .env.example .env
-```
-
-Generate a new application key
-
-```
-php artisan key:generate
-```
-
-Run the database migrations (**Set the database connection in .env before migrating**)
-
-```
-php artisan migrate --seed
 ```
 
 Start the local development server
