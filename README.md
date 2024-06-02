@@ -1,5 +1,7 @@
 # Route Rider System
 
+This project was built on Mosand Workshop Day.
+
 ## This project built with Laravel + Tailwind + Filament <br>
 
 - Arabic and English support
@@ -9,7 +11,7 @@
 - Ability to change theme settings
 - Support roles and permissions
 - Support Light & Dark theme
-- Support Soft delete and recover tasks
+- Support Soft delete and recovery tasks
 - If you like this work you can <a href="https://github.com/akramghaleb">see more here</a>
 
 ## Installation
@@ -20,7 +22,7 @@ Clone the repository
 git clone https://github.com/akramghaleb/Route-Rider-System.git
 ```
 
-Install all the dependencies using composer
+Install all the dependencies using the composer
 
 ```
 composer install
