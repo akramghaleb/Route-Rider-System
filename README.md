@@ -89,7 +89,7 @@ You can now access the server at http://localhost:8000
 username: admin@admin.com
 password: password
 
-<br><br>
+
 
 [Github Repo](https://github.com/akramghaleb/Route-Rider-System)
 
@@ -98,7 +98,7 @@ Thanks,
 If you enjoy my work, consider buying me a coffee to keep the creativity flowing!
 
 <a href="https://www.buymeacoffee.com/akramghaleb" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" width="150" ></a>
-
+<br><br>
 | Web Screens                         |
 |-------------------------------------|
 |![Project Screenshot 2](scs/01.png)|
