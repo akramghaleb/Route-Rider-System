@@ -1,7 +1,5 @@
 # Route Rider System
 
-This project was built on Mosand Workshop Day.
-
 ## This project built with Laravel + Tailwind + Filament <br>
 
 - Arabic and English support
