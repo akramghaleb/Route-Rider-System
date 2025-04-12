@@ -1,19 +1,19 @@
-# Route Rider System 🚴‍♂️
+# Route Rider System 🚌
 
-A modern and powerful web application built with **Laravel**, **Tailwind CSS**, and **Filament**. This system streamlines the management of route riders with a rich set of features, a responsive UI, and full support for both Arabic and English.
+A robust and intuitive web application designed for managing **bus routes, travel schedules, and journey logistics**. Built with **Laravel**, **Tailwind CSS**, and **Filament**, this system provides an efficient dashboard for administrators and smooth navigation for users — fully supporting both Arabic and English.
 
 ## ✨ Features
 
 - 🌍 **Multilingual**: Supports both Arabic and English  
-- 🎯 **Landing Page**: Clean, responsive design  
-- 📊 **Dashboard**: Powerful analytics and stats  
+- 🚌 **Landing Page**: Clean, responsive design for travel services  
+- 📊 **Dashboard**: Insightful statistics and data visualization  
 - 🔐 **Authentication**: Register, login, and password recovery  
-- 🎨 **Customizable Themes**: Switch between Light & Dark mode  
-- 👥 **Roles & Permissions**: Fine-grained access control  
-- ♻️ **Soft Deletes**: Recover deleted data with ease  
-- 🧠 **Built with Laravel, Tailwind CSS, and Filament**
+- 🎨 **Customizable Themes**: Light & Dark mode toggle  
+- 👥 **Roles & Permissions**: Admin, manager, and user control  
+- ♻️ **Soft Deletes**: Restore deleted journeys or users  
+- 🧠 **Built using Laravel + Tailwind CSS + Filament**
 
-> If you like this work, you can explore more on my [GitHub profile](https://github.com/akramghaleb) 🚀
+> Love this project? Check out more on my [GitHub profile](https://github.com/akramghaleb) 🚀
 
 ---
 
@@ -26,7 +26,7 @@ git clone https://github.com/akramghaleb/Route-Rider-System.git
 cd Route-Rider-System
 ```
 
-Install PHP dependencies via Composer:
+Install PHP dependencies:
 
 ```bash
 composer install
@@ -63,7 +63,7 @@ pnpm install
 bun install
 ```
 
-Build the assets:
+Build the frontend assets:
 
 ```bash
 # Choose the appropriate command based on your package manager
@@ -76,13 +76,13 @@ pnpm run build
 bun run build
 ```
 
-Run the development server:
+Start the development server:
 
 ```bash
 php artisan serve
 ```
 
-Visit your app at [http://localhost:8000](http://localhost:8000)
+Visit your app at: [http://localhost:8000](http://localhost:8000)
 
 🧪 Default login:
 - **Email**: `admin@admin.com`
@@ -121,7 +121,7 @@ Visit your app at [http://localhost:8000](http://localhost:8000)
 
 ## ☕ Support
 
-If you found this project helpful or inspiring, consider buying me a coffee!
+If this project helped you or inspired your own, consider supporting me with a coffee!
 
 [![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-red.png)](https://www.buymeacoffee.com/akramghaleb)
 
