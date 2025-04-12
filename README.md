@@ -1,126 +1,128 @@
-# Route Rider System
+# Route Rider System 🚴‍♂️
 
-This project was built on Mosand Workshop Day.
+A modern and powerful web application built with **Laravel**, **Tailwind CSS**, and **Filament**. This system streamlines the management of route riders with a rich set of features, a responsive UI, and full support for both Arabic and English.
 
-## This project built with Laravel + Tailwind + Filament <br>
+## ✨ Features
 
-- Arabic and English support
-- Has a landing page
-- Dashboard support with statistical features
-- Ability to register & recover passwords
-- Ability to change theme settings
-- Support roles and permissions
-- Support Light & Dark theme
-- Support Soft delete and recovery tasks
-- If you like this work you can <a href="https://github.com/akramghaleb">see more here</a>
+- 🌍 **Multilingual**: Supports both Arabic and English  
+- 🎯 **Landing Page**: Clean, responsive design  
+- 📊 **Dashboard**: Powerful analytics and stats  
+- 🔐 **Authentication**: Register, login, and password recovery  
+- 🎨 **Customizable Themes**: Switch between Light & Dark mode  
+- 👥 **Roles & Permissions**: Fine-grained access control  
+- ♻️ **Soft Deletes**: Recover deleted data with ease  
+- 🧠 **Built with Laravel, Tailwind CSS, and Filament**
 
-## Installation
+> If you like this work, you can explore more on my [GitHub profile](https://github.com/akramghaleb) 🚀
 
-Clone the repository
+---
 
-```
+## ⚙️ Installation Guide
+
+Clone the repository:
+
+```bash
 git clone https://github.com/akramghaleb/Route-Rider-System.git
+cd Route-Rider-System
 ```
 
-Install all the dependencies using the composer
+Install PHP dependencies via Composer:
 
-```
+```bash
 composer install
 ```
 
-Copy the example env file and make the required configuration changes in the .env file
+Copy and configure the environment file:
 
-```
+```bash
 cp .env.example .env
 ```
 
-Generate a new application key
+Generate the application key:
 
-```
+```bash
 php artisan key:generate
 ```
 
-Run the database migrations (**Set the database connection in .env before migrating**)
+Configure your database in `.env`, then run migrations and seeders:
 
-```
+```bash
 php artisan migrate --seed
 ```
 
+Install front-end dependencies:
 
-Make sure to install the dependencies:
 ```bash
-# npm
+# Choose one of the following:
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
+# or
 yarn install
-
-# bun
+# or
+pnpm install
+# or
 bun install
 ```
 
-Build your code:
+Build the assets:
 
 ```bash
-# npm
+# Choose the appropriate command based on your package manager
 npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
+# or
 yarn build
-
-# bun
+# or
+pnpm run build
+# or
 bun run build
 ```
 
-Start the local development server
+Run the development server:
 
-```
+```bash
 php artisan serve
 ```
 
-You can now access the server at http://localhost:8000
+Visit your app at [http://localhost:8000](http://localhost:8000)
 
-username: admin@admin.com
-password: password
+🧪 Default login:
+- **Email**: `admin@admin.com`
+- **Password**: `password`
 
-<br>
+---
 
-[Github Repo](https://github.com/akramghaleb/Route-Rider-System)
+## 📸 Screenshots
 
-Thanks,
-
-If you enjoy my work, consider buying me a coffee to keep the creativity flowing!
-
-<a href="https://www.buymeacoffee.com/akramghaleb" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" width="150" ></a>
-<br><br>
 | Web Screens                         |
 |-------------------------------------|
-|![Project Screenshot 2](scs/01.png)|
-|![Project Screenshot 2](scs/02.png)|
-|![Project Screenshot 2](scs/03.png)|
-|![Project Screenshot 2](scs/04.png)|
-|![Project Screenshot 2](scs/05.png)|
-|![Project Screenshot 2](scs/06.png)|
-|![Project Screenshot 2](scs/07.png)|
-|![Project Screenshot 2](scs/08.png)|
-|![Project Screenshot 2](scs/09.png)|
-|![Project Screenshot 2](scs/10.png)|
-|![Project Screenshot 2](scs/11.png)|
-|![Project Screenshot 2](scs/12.png)|
-|![Project Screenshot 2](scs/13.png)|
-|![Project Screenshot 2](scs/14.png)|
-|![Project Screenshot 2](scs/15.png)|
-|![Project Screenshot 2](scs/16.png)|
-|![Project Screenshot 2](scs/17.png)|
-|![Project Screenshot 2](scs/18.png)|
-|![Project Screenshot 2](scs/19.png)|
-|![Project Screenshot 2](scs/20.png)|
-|![Project Screenshot 2](scs/21.png)|
-|![Project Screenshot 2](scs/22.png)|
+| ![](scs/01.png) |
+| ![](scs/02.png) |
+| ![](scs/03.png) |
+| ![](scs/04.png) |
+| ![](scs/05.png) |
+| ![](scs/06.png) |
+| ![](scs/07.png) |
+| ![](scs/08.png) |
+| ![](scs/09.png) |
+| ![](scs/10.png) |
+| ![](scs/11.png) |
+| ![](scs/12.png) |
+| ![](scs/13.png) |
+| ![](scs/14.png) |
+| ![](scs/15.png) |
+| ![](scs/16.png) |
+| ![](scs/17.png) |
+| ![](scs/18.png) |
+| ![](scs/19.png) |
+| ![](scs/20.png) |
+| ![](scs/21.png) |
+| ![](scs/22.png) |
 
+---
+
+## ☕ Support
+
+If you found this project helpful or inspiring, consider buying me a coffee!
+
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-red.png)](https://www.buymeacoffee.com/akramghaleb)
+
+---
